@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   background: #f7f7f7;
   color: #111;
   line-height: 1.35;
@@ -22,7 +22,13 @@ a {
   text-decoration: none;
 }
 
-/* GLOBAL LINK STYLE */
+.container {
+  width: 94%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* LINKS */
 
 .card a,
 .document-link,
@@ -35,11 +41,9 @@ a {
   border-bottom: 1px solid currentColor;
 
   transition:
-    color 0.2s ease,
-    border-color 0.2s ease;
+  color 0.2s ease,
+  border-color 0.2s ease;
 }
-
-/* LINK ARROW */
 
 .card a::after,
 .document-link::after,
@@ -49,8 +53,6 @@ a {
   font-size: 0.8em;
 }
 
-/* LINK HOVER */
-
 .card a:hover,
 .document-link:hover,
 #contact a:hover,
@@ -59,25 +61,19 @@ a {
   border-color: rgb(245, 188, 183);
 }
 
-.container {
-  width: 94%;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
 /* HEADER */
 
 .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   border-bottom: 1px solid #111;
 }
+
+/* NAVBAR */
 
 .navbar {
   width: 94%;
   max-width: 1500px;
   margin: 0 auto;
+
   padding: 1.2rem 0;
 
   display: flex;
@@ -85,6 +81,7 @@ a {
   align-items: flex-start;
 
   font-size: 0.9rem;
+
   border-bottom: 1px solid #111;
 }
 
@@ -99,54 +96,73 @@ a {
   list-style: none;
 }
 
-.nav-links a {
-  border-bottom: none;
-}
-
-.nav-links a::after {
-  content: "";
-}
-
 .nav-links a:hover {
   color: rgb(245, 188, 183);
 }
 
-/* HERO */
+/* HERO IMAGE */
 
-.hero-content {
-  flex: 1;
-  width: 94%;
-  max-width: 1500px;
-  margin: 0 auto;
+.hero-image {
+  position: relative;
+
+  min-height: calc(100vh - 70px);
+
+  background-image: url("documents/bg2.jpg");
+  background-size: cover;
+  background-position: center;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  padding-bottom: 2rem;
+  align-items: flex-end;
 }
 
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 94%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+  padding-bottom: 2rem;
+
+  color: #f7f7f7;
+}
+
+/* HERO TYPOGRAPHY */
+
 .festival-label {
-  font-size: clamp(1.4rem, 3vw, 3rem);
+  font-size: clamp(1rem, 2vw, 2rem);
   font-weight: 700;
+
   margin-bottom: 1rem;
 }
 
 .hero h1 {
-  font-size: clamp(5rem, 18vw, 18rem);
-  line-height: 0.78;
+  font-size: clamp(5rem, 16vw, 16rem);
+  line-height: 0.8;
   letter-spacing: -0.08em;
   text-transform: uppercase;
-  max-width: 1300px;
+
+  max-width: 1000px;
 }
 
 .hero-text {
-  max-width: 900px;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 
-  font-size: clamp(1.4rem, 3vw, 3rem);
+  max-width: 900px;
+
+  font-size: clamp(1.5rem, 3vw, 3.5rem);
   font-weight: 700;
   line-height: 1;
+
+  color: rgb(245, 188, 183);
 }
 
 .button {
@@ -171,14 +187,19 @@ a {
   line-height: 0.85;
   letter-spacing: -0.07em;
   text-transform: uppercase;
+
   margin-bottom: 2rem;
 }
 
+.text-column {
+  max-width: 1000px;
+}
+
 .section p {
-  max-width: 950px;
-  font-size: clamp(1.3rem, 2.5vw, 2.6rem);
+  font-size: clamp(1.2rem, 2vw, 2.2rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.08;
+
   margin-bottom: 1.5rem;
 }
 
@@ -191,17 +212,18 @@ a {
 
 .theme-word {
   color: rgb(245, 188, 183);
+
   font-size: clamp(3rem, 10vw, 11rem);
   line-height: 0.85;
   letter-spacing: -0.08em;
   text-transform: uppercase;
+
   max-width: 1400px;
 }
 
-/* SUBMISSIONS */
+/* SUBMISSION */
 
 .info-grid {
-  display: block;
   border-top: 1px solid #111;
 }
 
@@ -211,6 +233,7 @@ a {
   gap: 2rem;
 
   padding: 1.5rem 0;
+
   border-bottom: 1px solid #111;
 }
 
@@ -221,7 +244,8 @@ a {
 
 .card p {
   margin: 0;
-  font-size: clamp(1.4rem, 3vw, 3.5rem);
+
+  font-size: clamp(1.4rem, 3vw, 3rem);
 }
 
 /* DOCUMENTS */
@@ -232,7 +256,9 @@ a {
 
 .document-link {
   display: block;
+
   padding: 1.5rem 0;
+
   border-bottom: 1px solid #111;
 
   font-size: clamp(2rem, 6vw, 6rem);
@@ -254,6 +280,7 @@ a {
   gap: 2rem;
 
   padding: 1.5rem 0;
+
   border-bottom: 1px solid #f7f7f7;
 }
 
@@ -261,13 +288,16 @@ a {
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
+
   color: rgb(245, 188, 183);
 }
 
 .date-item p {
   margin: 0;
+
   color: #f7f7f7;
-  font-size: clamp(1.4rem, 3vw, 3.5rem);
+
+  font-size: clamp(1.4rem, 3vw, 3rem);
 }
 
 /* CONTACT */
@@ -280,11 +310,13 @@ a {
 
 .footer {
   padding: 1.2rem 3%;
+
   font-size: 0.85rem;
+
   border-top: 1px solid #111;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media (max-width: 800px) {
 
@@ -305,6 +337,10 @@ a {
 
   .hero h1 {
     line-height: 0.9;
+  }
+
+  .hero-image {
+    min-height: 90vh;
   }
 
 }
